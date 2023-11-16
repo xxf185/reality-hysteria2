@@ -713,7 +713,7 @@ mkdir -p "/root/sbox/"
 download_singbox
 
 # reality
-red "开始配置Reality"
+yellow "开始配置Reality"
 echo ""
 # Generate key pair
 echo "自动生成基本参数"
