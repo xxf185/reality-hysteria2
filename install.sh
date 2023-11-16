@@ -33,9 +33,7 @@ show_notice() {
 
 # 作者介绍
 echo ""
-echo ""
 print_with_delay "Reality Hysteria2 二合一脚本" 0.03
-echo ""
 echo ""
 
 # 安装依赖
@@ -136,7 +134,7 @@ show_client_configuration() {
   reality_link="vless://$reality_uuid@$server_ip:$reality_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reality_server_name&fp=chrome&pbk=$public_key&sid=$short_id&type=tcp&headerType=none#SING-BOX-REALITY"
   echo ""
   echo ""
-  show_notice "$(red "Reality 通用链接和二维码和通用参数")" 
+  show_notice "$(yellow "Reality 通用链接和二维码和通用参数")" 
   echo ""
   echo ""
   yellow "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 通用链接如下━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
