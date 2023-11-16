@@ -32,6 +32,8 @@ show_notice() {
 }
 
 # 作者介绍
+echo ""
+echo ""
 print_with_delay "Reality Hysteria2 二合一脚本" 0.03
 echo ""
 echo ""
@@ -647,10 +649,7 @@ install_base
 # Check if reality.json, sing-box, and sing-box.service already exist
 if [ -f "/root/sbox/sbconfig_server.json" ] && [ -f "/root/sbox/config" ] && [ -f "/root/sbox/xxf185.sh" ] && [ -f "/usr/bin/xxf185" ] && [ -f "/root/sbox/sing-box" ] && [ -f "/etc/systemd/system/sing-box.service" ]; then
     echo ""
-    echo ""
-    echo ""
     echo "sing-box-reality-hysteria2已经安装"
-    echo ""
     echo ""
     echo "1. 重新安装"
     echo "2. 修改配置"
