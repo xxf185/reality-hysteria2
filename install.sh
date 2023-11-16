@@ -24,15 +24,15 @@ show_notice() {
     local white_fg="\e[97m"
     local reset="\e[0m"
 
-    echo -e "${green_bg}${white_fg}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset}"
-    echo -e "${white_fg}┃${reset}                                                                                             "
-    echo -e "${white_fg}┃${reset}                                   ${message}                                                "
-    echo -e "${white_fg}┃${reset}                                                                                             "
-    echo -e "${green_bg}${white_fg}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${reset}"
+    echo -e ""
+    echo -e ""
+    echo -e "                                            ${message}                                                "
+    echo -e " "
+    echo -e ""
 }
 
 # 作者介绍
-print_with_delay "Reality Hysteria2 二合一脚本 by 绵阿羊" 0.03
+print_with_delay "Reality Hysteria2 二合一脚本" 0.03
 echo ""
 echo ""
 
@@ -62,12 +62,12 @@ install_base(){
 }
 # 创建快捷方式
 create_shortcut() {
-  cat > /root/sbox/mianyang.sh << EOF
+  cat > /root/sbox/xxf185.sh << EOF
 #!/usr/bin/env bash
-bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/install.sh) \$1
+bash <(curl -fsSL https://raw.githubusercontent.com/xxf185/reality-hysteria2/main/install.sh) \$1
 EOF
-  chmod +x /root/sbox/mianyang.sh
-  ln -sf /root/sbox/mianyang.sh /usr/bin/mianyang
+  chmod +x /root/sbox/xxf185.sh
+  ln -sf /root/sbox/xxf185.sh /usr/bin/xxf185
 
 }
 # 下载cloudflared和sb
@@ -88,16 +88,16 @@ download_singbox(){
   esac
   # Fetch the latest (including pre-releases) release version number from GitHub API
   # 正式版
-  #latest_version_tag=$(curl -s "https://api.github.com/repos/SagerNet/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | head -n 1)
+  #latest_version_tag=$(curl -s "https://api.github.com/repos/xxf185/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | head -n 1)
   #beta版本
-  latest_version_tag=$(curl -s "https://api.github.com/repos/SagerNet/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | sort -V | tail -n 1)
+  latest_version_tag=$(curl -s "https://api.github.com/repos/xxf185/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | sort -V | tail -n 1)
   latest_version=${latest_version_tag#v}  # Remove 'v' prefix from version number
   echo "Latest version: $latest_version"
   # Detect server architecture
   # Prepare package names
   package_name="sing-box-${latest_version}-linux-${arch}"
   # Prepare download URL
-  url="https://github.com/SagerNet/sing-box/releases/download/${latest_version_tag}/${package_name}.tar.gz"
+  url="https://github.com/xxf185/sing-box/releases/download/${latest_version_tag}/${package_name}.tar.gz"
   # Download the latest release package (.tar.gz) from GitHub
   curl -sLo "/root/${package_name}.tar.gz" "$url"
 
@@ -137,22 +137,20 @@ show_client_configuration() {
   show_notice "$(red "Reality 通用链接和二维码和通用参数")" 
   echo ""
   echo ""
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 通用链接如下━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  yellow "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 通用链接如下━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo "$reality_link"
   echo ""
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo "" 
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 二维码如下━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  yellow "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 二维码如下━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   qrencode -t UTF8 $reality_link
   echo ""
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
   echo ""
   echo ""
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 客户端通用参数-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+  yellow "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Reality 客户端通用参数-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo "服务器ip: $server_ip"
   echo "监听端口: $reality_port"
@@ -161,7 +159,6 @@ show_client_configuration() {
   echo "Public Key: $public_key"
   echo "Short ID: $short_id"
   echo ""
-  red "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo ""
 
@@ -184,14 +181,12 @@ show_client_configuration() {
   echo ""
   echo "$hy2_link"
   echo ""
-  green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo "" 
   echo ""
   green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━hysteria2 二维码━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   qrencode -t UTF8 $hy2_link  
   echo ""
-  green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""  
   echo ""
   green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Hysteria2 客户端通用参数━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" 
@@ -202,7 +197,6 @@ show_client_configuration() {
   echo "域名SNI: $hy_server_name"
   echo "跳过证书验证（允许不安全）: True"
   echo ""
-  green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
   echo ""
   echo ""
   green "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━Hysteria2 官方内核yaml文件（可搭配v2rayN)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" 
@@ -568,7 +562,7 @@ EOF
 #enable bbr
 enable_bbr() {
     # temporary workaround for installing bbr
-    bash <(curl -L -s https://raw.githubusercontent.com/teddysun/across/master/bbr.sh)
+    bash <(curl -L -s https://raw.githubusercontent.com/xxf185/bbr/main/tcp.sh)
     echo ""
 }
 #修改sb
@@ -635,8 +629,8 @@ uninstall_singbox() {
     # Remove configuration and executable files
     rm -f /root/sbox/sbconfig_server.json
     rm -f /root/sbox/sing-box
-    rm -f /root/sbox/mianyang.sh
-    rm -f /usr/bin/mianyang
+    rm -f /root/sbox/xxf185.sh
+    rm -f /usr/bin/xxf185
     rm -f /root/sbox/self-cert/private.key
     rm -f /root/sbox/self-cert/cert.pem
     rm -f /root/sbox/config
@@ -651,7 +645,7 @@ uninstall_singbox() {
 install_base
 
 # Check if reality.json, sing-box, and sing-box.service already exist
-if [ -f "/root/sbox/sbconfig_server.json" ] && [ -f "/root/sbox/config" ] && [ -f "/root/sbox/mianyang.sh" ] && [ -f "/usr/bin/mianyang" ] && [ -f "/root/sbox/sing-box" ] && [ -f "/etc/systemd/system/sing-box.service" ]; then
+if [ -f "/root/sbox/sbconfig_server.json" ] && [ -f "/root/sbox/config" ] && [ -f "/root/sbox/xxf185.sh" ] && [ -f "/usr/bin/xxf185" ] && [ -f "/root/sbox/sing-box" ] && [ -f "/etc/systemd/system/sing-box.service" ]; then
 
     echo "sing-box-reality-hysteria2已经安装"
     echo ""
@@ -665,7 +659,7 @@ if [ -f "/root/sbox/sbconfig_server.json" ] && [ -f "/root/sbox/config" ] && [ -
     echo "6. 一键开启bbr"
     echo "7. 重启sing-box"
     echo ""
-    read -p "Enter your choice (1-8): " choice
+    read -p "选择 (1-8): " choice
 
     case $choice in
       1)
