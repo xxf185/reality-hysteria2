@@ -1,3 +1,3 @@
 ```
-bash <(curl -fsSL https://github.com/vveg26/sing-box-reality-hysteria2/raw/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/xxf185/reality-hysteria2/main/install.sh)
 ```
