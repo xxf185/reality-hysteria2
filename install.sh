@@ -33,7 +33,7 @@ show_notice() {
 
 # 作者介绍
 echo ""
-print_with_delay "Reality Hysteria2 二合一脚本" 0.03
+echo "-----------Reality Hysteria2 二合一脚本----------" 
 echo ""
 
 # 安装依赖
