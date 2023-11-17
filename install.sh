@@ -92,7 +92,7 @@ download_singbox(){
   #beta版本
   latest_version_tag=$(curl -s "https://api.github.com/repos/xxf185/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | sort -V | tail -n 1)
   latest_version=${latest_version_tag#v}  # Remove 'v' prefix from version number
-  echo "最新版本: $latest_version"
+  echo "sing-box内核最新版本: $latest_version"
   # Detect server architecture
   # Prepare package names
   package_name="sing-box-${latest_version}-linux-${arch}"
