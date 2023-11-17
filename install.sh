@@ -74,6 +74,7 @@ EOF
 download_singbox(){
   arch=$(uname -m)
   echo "cpu架构: $arch"
+  echo ""
   # Map architecture names
   case ${arch} in
       x86_64)
@@ -93,6 +94,7 @@ download_singbox(){
   latest_version_tag=$(curl -s "https://api.github.com/repos/xxf185/sing-box/releases" | grep -Po '"tag_name": "\K.*?(?=")' | sort -V | tail -n 1)
   latest_version=${latest_version_tag#v}  # Remove 'v' prefix from version number
   echo "sing-box内核最新版本: $latest_version"
+  echo ""
   # Detect server architecture
   # Prepare package names
   package_name="sing-box-${latest_version}-linux-${arch}"
