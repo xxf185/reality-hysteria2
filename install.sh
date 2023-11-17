@@ -570,7 +570,7 @@ enable_bbr() {
 #修改sb
 modify_singbox() {
     #modifying reality configuration
-    show_notice "开始修改reality端口号和域名"
+    show_notice "----------开始修改reality端口号和域名----------"
     reality_current_port=$(grep -o "REALITY_PORT='[^']*'" /root/sbox/config | awk -F"'" '{print $2}')
     while true; do
         read -p "请输入想要修改的端口号 (当前端口号为 $reality_current_port): " reality_port
