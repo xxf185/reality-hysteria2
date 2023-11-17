@@ -686,7 +686,7 @@ if [ -f "/root/sbox/sbconfig_server.json" ] && [ -f "/root/sbox/config" ] && [ -
           download_singbox
           # Check configuration and start the service
           if /root/sbox/sing-box check -c /root/sbox/sbconfig_server.json; then
-              echo "Configuration checked successfully. Starting sing-box service..."
+              echo "配置完成，启动sing-box服务"
               systemctl restart sing-box
           fi
           echo ""  
