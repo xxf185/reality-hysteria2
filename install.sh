@@ -46,7 +46,7 @@ install_base(){
       if [ -n "$(command -v apt)" ]; then
         sudo apt update > /dev/null 2>&1
         sudo apt install -y "$package" > /dev/null 2>&1
-        wget https://github.com/xxf185/jq/releases/download/jq-1.7/jq-linux-amd64 > /dev/null 2>&1
+        sudo wget https://github.com/xxf185/jq/releases/download/jq-1.7/jq-linux-amd64 > /dev/null 2>&1
         chmod a+x jq-linux-amd64 && mv jq-linux-amd64 /usr/bin/jq
       elif [ -n "$(command -v yum)" ]; then
         sudo yum install -y "$package"
