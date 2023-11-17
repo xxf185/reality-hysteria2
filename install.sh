@@ -897,7 +897,7 @@ EOF
 
 # Check configuration and start the service
 if /root/sbox/sing-box check -c /root/sbox/sbconfig_server.json; then
-    echo "Configuration checked successfully. Starting sing-box service..."
+    echo "配置完成，启动sing-box服务"
     systemctl daemon-reload
     systemctl enable sing-box > /dev/null 2>&1
     systemctl start sing-box
