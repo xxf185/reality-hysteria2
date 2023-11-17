@@ -56,7 +56,7 @@ install_base(){
       fi
       echo "$package 已安装。"
     else
-      echo "$package 已经安装。"
+      echo ""
     fi
   done
 }
