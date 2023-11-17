@@ -716,10 +716,10 @@ download_singbox
 yellow "开始配置Reality"
 echo ""
 # Generate key pair
-echo "自动生成基本参数"
+echo "正在生成密匙"
 echo ""
 key_pair=$(/root/sbox/sing-box generate reality-keypair)
-echo "Key pair生成完成"
+echo "生成密匙完成"
 echo ""
 
 # Extract private key and public key
