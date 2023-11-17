@@ -73,7 +73,7 @@ EOF
 # 下载cloudflared和sb
 download_singbox(){
   arch=$(uname -m)
-  echo "Architecture: $arch"
+  echo "cpu架构: $arch"
   # Map architecture names
   case ${arch} in
       x86_64)
